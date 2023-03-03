@@ -1,0 +1,378 @@
+FILE,LAD 2:
+SOR,0 XIC,I:1/0 MOV,3,N7:0 MOV,N7:0,C5:0.PRE MOV,8,N7:1 MUL,N7:1,10,T4:0.PRE EOR,0
+RCM,Se obtiene el valor en segundos  de la luz roja  y los ciclos del usuario en el cuadro move source
+SOR,1 XIC,I:1/0 DIV,N7:1,2,N7:2 ADD,N7:1,N7:2,N7:3 MUL,N7:3,10,T4:1.PRE MUL,N7:2,10,T4:2.PRE EOR,1
+RCM,Se calculan los valores de los timers ambar y verde y se asignan a los mismos
+SOR,2 BST,1 XIC,I:1/0 NXB,1 XIC,B3:0/3 BND,1 XIO,C5:0/DN OTE,B3:0/3 EOR,2
+RCM,Auto enclavamos el inicio para que no interfiera el boton una vez iniciado el programa
+SOR,3 XIC,C5:0/DN RES,C5:0 EOR,3
+RCM,Cuando el contador active done se restablece a 0
+SOR,4 BST,1 XIC,B3:0/3 XIO,C5:0/DN NXB,1 XIC,B3:0/0 BND,1 XIO,T4:1/DN XIO,O:2/5 XIO,O:2/4 OTE,B3:0/0 EOR,4
+RCM,Iniciamos el conteo verde y enclavamos una salida con bandera, se desenclava cuando el timer termina de contar
+SOR,5 XIC,B3:0/0 TON,T4:1,120 EOR,5
+RCM,Timer de la luz verde
+SOR,6 XIC,T4:1/EN OTE,O:2/6 EOR,6
+RCM,Prendemos el actuador de la luz verde
+SOR,7 BST,1 XIC,T4:1/DN NXB,1 XIC,B3:0/1 BND,1 XIO,T4:2/DN OTE,B3:0/1 EOR,7
+RCM,Iniciamos el conteo ambar y enclavamos una salida con bandera, se desenclava cuando el timer termina de contar
+SOR,8 XIC,B3:0/1 TON,T4:2,40 EOR,8
+RCM,Timer de la luz ambar
+SOR,9 XIC,T4:2/EN OTE,O:2/5 EOR,9
+RCM,Prendemos el actuador de la luz ambar
+SOR,10 BST,1 XIC,T4:2/DN NXB,1 XIC,B3:0/2 BND,1 XIO,T4:0/DN OTE,B3:0/2 EOR,10
+RCM,Iniciamos el conteo Rojo y enclavamos una salida con bandera, se desenclava cuando el timer termina de contar
+SOR,11 XIC,B3:0/2 TON,T4:0,80 EOR,11
+RCM,Timer de la luz roja
+SOR,12 XIC,T4:0/EN OTE,O:2/4 EOR,12
+RCM,Prendemos el actuador de la luz Roja
+SOR,13 XIC,T4:0/DN CTU,C5:0,3 EOR,13
+RCM,Cada vez que el timer rojo termina se cuenta un ciclo
+SOR,14 END,14
+RCM,
+FILE,SBR 3:
+SOR,0 END,0
+RCM,
+FILE,SBR 4:
+SOR,0 END,0
+RCM,
+FILE,SBR 5:
+SOR,0 END,0
+RCM,
+FILE,SBR 6:
+SOR,0 END,0
+RCM,
+FILE,SBR 7:
+SOR,0 END,0
+RCM,
+FILE,SBR 8:
+SOR,0 END,0
+RCM,
+FILE,SBR 9:
+SOR,0 END,0
+RCM,
+BTBL
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+NTBL
+3
+8
+4
+12
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+FTBL
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+SYMBOLS
+T4:0 Timer Luz Roja
+I:1/0 Inicio
+20 Guarda el valor Luz roja
+T4:1 Timer Luz verde
+T4:2 Timer luz ambar
+B3:0/0 Bandera verde
+T4:1/DN Timer verde termino
+T4:1/EN Timer verde on
+T4:2/DN Timer ambar termino
+B3:0/1 Bandera Ambar
+T4:2/EN Timer ambar on
+O:2/6 Luz verde
+O:2/5 Luz Ambar
+T4:0/DN Timer Rojo termino
+B3:0/2 Bandera Roja
+T4:0/EN Timer Rojo on
+O:2/4 Luz Roja
+5 Segundos usuario
+B3:0/3 Bandera inicio
+C5:0/DN Contador acabo
+C5:0 Contador ciclos
+2 Ciclos usuario

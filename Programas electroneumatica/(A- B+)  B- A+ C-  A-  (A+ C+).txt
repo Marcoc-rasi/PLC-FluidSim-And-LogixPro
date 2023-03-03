@@ -1,0 +1,21 @@
+   1         2        3      4
+(A- B+) / B- A+ C- / A- / (A+ C+)
+       1s         2s
+T1s = AND(a0, b1)
+T2s = c0
+SET G1 = AND(S, NOT R, a1, b0, c1)
+RESET G1 = OR(G2, R)
+SET G2 = AND(G1, T1s)
+RESET G2 = OR(G3, R)
+SET G3 = AND(G2, T2s)
+RESET G3 = OR(G4, R)
+SET G4 = AND(G3, a0)
+RESET G4 = OR(AND(G4, a1, c1), R)
+
+A- = OR(G1, G3)
+A+ = OR(AND(G2, b0), G4, AND(R, NOT a1))  
+SET B+ = G1 
+RESET B+ = B- = OR(G2, R)
+SET C- = AND(G2, a1)
+RESET C- = C+ = OR(G4, R)
+
